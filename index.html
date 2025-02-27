@@ -1,0 +1,2495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP ESG</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .navbar {
+            background-color: #d4edda;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px; /* Adjust the logo size here */
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            margin: 0;
+            align-items: center;
+        }
+        .nav-links li {
+            padding: 0 10px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .language-toggle {
+            display: flex;
+        }
+        .language-toggle button {
+            background-color: transparent;
+            border: 1px solid #333;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .language-toggle button:hover {
+            background-color: #333;
+            color: white;
+        }
+        .content-container {
+            padding: 20px;
+            display: none;
+        }
+        .content-container.active {
+            display: block;
+        }
+        footer {
+            background-color: #d4edda;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://github.com/Sethjesus/Jacky/blob/main/Logo.jpg?raw=true" alt="JP ESG Logo">
+        </div>
+       <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<ul class="nav-links" id="nav-links-en">
+    <li><a onclick="showContent('home-en')"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="https://sethjesus.github.io/JPESG/EDM2.html" target="_blank"><i class="fas fa-mail-bulk"></i> Solutions</a></li> <!-- EDM 連結 -->
+    <li><a onclick="showContent('product-en')"><i class="fas fa-lightbulb"></i> Products</a></li>
+    <li><a onclick="showContent('news-en')"><i class="fas fa-newspaper"></i> News & Events</a></li>
+    <li><a onclick="showContent('download-en')"><i class="fas fa-download"></i> Download</a></li>
+    <li><a onclick="showContent('consult-en')"><i class="fas fa-comments"></i> Consult</a></li>
+    <li><a onclick="showContent('contact-en')"><i class="fas fa-envelope"></i> Contact</a></li>
+   
+</ul>
+
+
+<ul class="nav-links" id="nav-links-zh" style="display: none;">
+    <li><a onclick="showContent('home-zh')"><i class="fas fa-home"></i> 首頁</a></li>
+    <li><a onclick="showContent('products-zh')"><i class="fas fa-lightbulb"></i> 產品</a></li>
+    <li><a onclick="showContent('news-zh')"><i class="fas fa-newspaper"></i> 新聞發布</a></li>
+    <li><a onclick="showContent('download-zh')"><i class="fas fa-download"></i> 下載</a></li>
+    <li><a onclick="showContent('consult-zh')"><i class="fas fa-comments"></i> 諮詢</a></li>
+    <li><a onclick="showContent('contact-zh')"><i class="fas fa-envelope"></i> 聯絡方式</a></li>
+</ul>
+
+        </ul>
+        <div class="language-toggle">
+            <button id="toggle-en" onclick="toggleLanguage('en')">EN</button>
+            <button id="toggle-zh" onclick="toggleLanguage('zh')">中文</button>
+        </div>
+    </nav>
+
+    <div id="home-en" class="content-container active">
+        <h1>Welcome to JP ESG</h1>
+        <p>    <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Vue.js and Bootstrap Slideshow</title>
+                <!-- Bootstrap CSS -->
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+                <!-- Vue.js -->
+                <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+                <style>
+                    .slideshow-container {
+                        width: 100%;
+                        height: 500px; /* Adjust height as needed */
+                        position: relative;
+                        overflow: hidden;
+                    }
+                    .slide {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        display: none; /* Hide images initially */
+                    }
+                    .slide img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    .active {
+                        display: block;
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="app">
+                    <div class="slideshow-container">
+                        <div class="slide" v-for="(slide, index) in slides" :key="index" :class="{ active: index === currentSlide }">
+                            <img :src="slide" :alt="'Slide ' + (index + 1)">
+                        </div>
+                    </div>
+                    
+                </div>
+            
+                <!-- Bootstrap JS and dependencies -->
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            
+                <script>
+                    
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            slides: [
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%201.jpg?raw=true",
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%202.jpg?raw=true",
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%203.jpg?raw=true",
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%204.jpg?raw=true",
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%205.jpg?raw=true",
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%206.jpg?raw=true",
+                                "https://github.com/Sethjesus/Photo/blob/main/abundance%207.jpg?raw=true"
+                            ],
+                            currentSlide: 0,
+                            interval: null
+                        },
+                        methods: {
+                            showSlides() {
+                                this.currentSlide++;
+                                if (this.currentSlide >= this.slides.length) {
+                                    this.currentSlide = 0;
+                                }
+                            },
+                            nextSlide() {
+                                this.stopSlideshow();
+                                this.showSlides();
+                                this.startSlideshow();
+                            },
+                            prevSlide() {
+                                this.stopSlideshow();
+                                this.currentSlide--;
+                                if (this.currentSlide < 0) {
+                                    this.currentSlide = this.slides.length - 1;
+                                }
+                                this.startSlideshow();
+                            },
+                            stopSlideshow() {
+                                clearInterval(this.interval);
+                            },
+                            startSlideshow() {
+                                this.interval = setInterval(this.showSlides, 3000); // Ensure 'this' is correctly bound
+                            }
+                        },
+                        mounted() {
+                            this.startSlideshow();
+                        }
+                    });
+                </script>
+            </body>
+            </html>
+            
+            <!DOCTYPE html>
+                      <html lang="en">
+                      <head>
+                          <meta charset="UTF-8">
+                          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                          <title>JP ESG About Us</title>
+                          <style>
+                              h1 {
+                                  color: blue; /* 设置H1标签的字体颜色为蓝色 */
+                              }
+                          </style>
+                      </head>
+                      <body>
+                          <h1>About Us: </h1>
+                          <h3>The Story of JP ESG - Powering a Sustainable Future</h3>
+                          <p>At JP ESG, our journey began with a deep-rooted commitment to the Earth and an innovative vision for the future. Born from the realization that every action affects our planet, we embarked on a mission to transform how businesses and individuals consume power. Through advanced energy monitoring and dedicated efforts toward net-zero carbon emissions, we are not just a company; we are a movement dedicated to preserving our world.</p>
+                          <h3>Origins of Innovation</h3>
+                              <p>The idea for JP ESG sparked on a crisp autumn evening when our founder, Prof. Dainel,and his student Patty witnessed firsthand the impact of energy waste in her local community. Streetlights burned all night in empty parks, and offices remained brightly lit long after workers had gone home. This unnecessary energy consumption not only wasted resources but also contributed significantly to carbon emissions. Prof. Daniel asked herself,
+                               "What if we could change this? What if everyone could see and manage their energy usage efficiently?"Fuelled by this idea, JP ESG was founded with the goal of developing smart, intuitive
+                                monitoring systems that could easily be integrated into any home or business. These systems were designed not only to provide real-time insights into energy consumption but also to 
+                                guide users on optimizing their usage and reducing their carbon footprint.<br>.</p>
+                          <h3>Revolutionizing Energy Monitoring</h3>
+                          <p> JP ESG introduced its first energy monitoring system in 2023. It was a revolutionary piece of technology that utilized real-time data analytics to provide users with actionable insights into their energy consumption. Users could instantly see how much energy they were using, identify peak usage times, and receive tailored recommendations on how to reduce their consumption.<br>But we didn’t stop there. We saw the potential to 
+                            impact greater change by connecting our technology with renewable energy sources. Our systems began to help users not only monitor but also switch to cleaner energy options, such as solar
+                             or wind power, seamlessly integrating with existing infrastructure.</p>
+                         <h2>The Net-Zero Vision</h2>
+                         <p>As our technology advanced, so did our ambitions. JP ESG committed to a net-zero carbon future, setting a target to help reduce global carbon emissions significantly by 2030. We partnered
+                           with environmental scientists, policymakers, and local communities to expand our impact. Every product sold contributed to global reforestation projects and research into sustainable 
+                           practices.</p>
+                         <h2>Earth's Guardians</h2>
+                         <p>Today, JP ESG is recognized not just for our innovative products but for our commitment to the planet. We are more than a technology provider; we are guardians of the Earth. Our ongoing
+                           initiatives include educational programs that raise awareness about sustainable living and community projects that encourage a greener lifestyle.</p>
+                         <h2>Join Us</h2>
+                         <p>We at JP ESG believe that protecting our planet requires collective action. We invite you to join us in this crucial mission—whether by integrating JP ESG’s monitoring systems into your 
+                          life, participating in community sustainability projects, or simply making more informed energy choices. Every effort counts.<br>
+                          Together, we can forge a sustainable future, ensuring that our planet remains vibrant and thriving for generations to come. Let's empower change—one watt at a time. Join us at JP ESG,
+                           where every day is a step towards a cleaner, greener planet.
+                      </p>
+                         <!-- 更多内容 -->
+                      </body>
+                      </html>
+                                  .</p>
+                </div>
+            </p>
+    </div>
+
+    <div id="product-en" class="content-container">
+        <h1>Products</h1>
+        <p> <!DOCTYPE html>
+            <html lang="zh">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Image Gallery</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+                    .image-window {
+                        height: 500px; /* Increased height to accommodate text below the image */
+                        border: 1px solid #ccc;
+                        margin-bottom: 1px;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        overflow: hidden;
+                    }
+                    .image-window img {
+                        transition: transform 0.5s ease; /* Smooth transform effect */
+                        max-width: 80%;
+                        max-height: 60%; /* Adjusted to leave space for text */
+                    }
+                    .image-window img:hover {
+                        transform: scale(1.1); /* Scale up image on hover */
+                    }
+                    .image-desc {
+                        text-align: center;
+                        font-size: 2.0em;
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="app" class="container">
+                    <h1 class="text-center mt-4">JP ESG Art Gallery</h1>
+                    <div class="景沛藝廊">
+                        <h2>Wireless Solutions</h2>
+                        <div class="row">
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/GW06.jpg?raw=true" alt="GW06 (藍芽對WiFi 2.4G) Gateway">
+                                <div class="image-desc">GW06 (BLE to WiFi 2.4G) Gateway</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06-03.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/GW06-03.jpg?raw=true" alt="GW06-03/GW08-03 藍芽 對Modbus TCP Gateway">
+                                <div class="image-desc">GW06-03/GW08-03 BLE to Modbus TCP Gateway</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW08.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/GW08.jpg?raw=true" alt="GW08 窄頻1G 對 wifi 2.4G Gateway">
+                                <div class="image-desc">GW08 (Sub-1G Wifi 2.4G) Gate Way</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/RP01.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/RP01.jpg?raw=true" alt="RP01 (藍芽對窄頻配合GW08) Gateway">
+                                <div class="image-desc">RP01 (BLE to Sub-1G with GW08) Gate Way</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM02.jpg?raw=true" alt="CM02 (交流0.6A 到100A Dia. 16mm)鉤表">
+                                <div class="image-desc">CM02 (AC 0.6A-100A Dia.16mm) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM03.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM03.jpg?raw=true" alt="CM03 (交流 2A到250A Dia.24mm)鉤表">
+                                <div class="image-desc">CM03 (AC 2A-250A Dia. 24mm) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM04.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM04.jpg?raw=true" alt="CM04 (交流 3A到350A Dia.24mm)鉤表">
+                                <div class="image-desc">CM04 (AC 3A-350A Dia.35mm) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02-04.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM02-04.jpg?raw=true" alt="CM02-04(交流 0.05A到15A Dia.16mm)鉤表">
+                                <div class="image-desc">CM02-04 (AC 0.05A -15A Dia. 16mm) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02-06.png?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM02-06.png?raw=true" alt="CM02-06(交流 0.001A到0.5A Dia.16mm)鉤表">
+                                <div class="image-desc">CM02-06 (AC 0.001A - 0.5A) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true" alt="FM02(交流2A到1000A Dia.80mm)軟線鉤表">
+                                <div class="image-desc">FM02 (AC 2A - 1000A Dia. 80mm Flex Cable) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true" alt="FM03(交流3A到2000A Dia.105mm)軟線鉤表">
+                                <div class="image-desc">FM03 (AC 3A - 2000A Dia. 105mm Flex Cable) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true" alt="FM04(交流5A到3000A Dia.180mm)軟線鉤表">
+                                <div class="image-desc">FM04 (AC 5A - 3000A Dia. 180mm Flex Cable) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM03-05.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM03-05.jpg?raw=true" alt="CM03-05(交流2A到250A Dia.24mm)環溫鉤表">
+                                <div class="image-desc">CM03-05 (AC 2A -250A Dia.24mm with temp cable 0~100oC length 2m) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM04-05.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM04-05.jpg?raw=true" alt="CM04-05 (交流 3A到350A Dia.36mm)環溫鉤表">
+                                <div class="image-desc">CM04-05 (AC 3A~ 350A Dia.36mm with temp cable 0~100oC length 2m) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02-07.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CM02-07.jpg?raw=true" alt="CM02-07 (直流0.4A到20A Dia.16mm)鉤表">
+                                <div class="image-desc">CM02-07 (DC 0.4A ~ 20A Dia.16mm) CT</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TM01.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/TM01.jpg?raw=true" alt="TM01 (溫度量測 0 to 100 °C) 溫度計">
+                                <div class="image-desc">TM01 ( Contact temp 0 ~ 100 oC cable length 2m) Temp. Sensor</div>
+                            </div>
+                            
+                            <div class="col-md-3 image-window" v-for="n in 20" key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06-04.jpg?raw=true')">
+                           <img src="https://github.com/Sethjesus/Photo/blob/main/GW06-04.jpg?raw=true" alt="GW06-04 and GW08-04 Bluetooth to WiFi and Narrowband to WiFi Gateway">
+                           <div class="image-desc">GW06-04/GW08-04 (BLE to Wifi / Sub1G to Wifi 2.4G/5G/Ethernet) Special CT</div>
+                       </div>
+                       
+                        <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06-06.jpg?raw=true')">
+                            <img src="https://github.com/Sethjesus/Photo/blob/main/GW06-06.jpg?raw=true" alt="GW06-06 (Modbus RTU to Modbus TCP) Hook Meter">
+                            <div class="image-desc">GW06-06 (Modbus RTU to Modbus TCP) Special CT</div>
+                        </div>
+                    </div>
+                    
+                       
+                        
+                    </div>
+            
+                    <div class="category">
+                        <h2>Wirled Soluctions</h2>
+                        <div class="row">
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SMB350-4.jpg?raw=true')">
+                               <img src="https://github.com/Sethjesus/Photo/blob/main/SMB350-4.jpg?raw=true" alt="SMB350-4三相智慧電表4組勾表">
+                               <div class="image-desc">SMB350-4(12 single phase circuits or 4 three phase circuits) Smart meter</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SMB350-8.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/SMB350-8.jpg?raw=true" alt="SMB350-8三相智慧電表4組勾表">
+                                <div class="image-desc">SMB350-8 (24Single phase circuits or 8 three phase Circuits) Smart meter</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/ACS35.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/ACS35.jpg?raw=true" alt="ACS35觸控式資料顯示頻">
+                                <div class="image-desc">ACS35 Meter Reading Touch Panel</div>
+                             </div>
+        
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/PM200.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/PM200.jpg?raw=true" alt="PM200 三相智慧電表">
+                                <div class="image-desc">PM200 (3Phase Measurement Kwh) Smart meter</div>
+                             </div>
+        
+                             
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/PM210.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/PM210.jpg?raw=true" alt="PM210 三相智慧電表 ">
+                                <div class="image-desc">PM210 (3 Phase Measurement (Vline, Vphase, A, KW, KVAR, PF, Hz, Kwh) Smart meter</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/PM250.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/PM250.jpg?raw=true" alt="PM250 三相智慧電表 ">
+                                <div class="image-desc">PM250 -4/-P/-X/-E (Vline, A, KW, KVAR, PF, Hz, Kwh,) Smart meter</div>
+                             </div>
+        
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TB%20Series.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/TB%20Series.jpg?raw=true" alt="TB 系系列100A~400A勾表 ">
+                                <div class="image-desc"><BR>TB Series 100A~ 400A (Current Transformer)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CT%20Series.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CT%20Series.jpg?raw=true" alt="CT 系列5A~200A勾表 ">
+                                <div class="image-desc"><BR>CT Series 5A~200A (Current Transformer)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CT%20Series%20600.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CT%20Series%20600.jpg?raw=true" alt="CT 系列200A~600A勾表 ">
+                                <div class="image-desc"><BR>CT Series 200A~600A (Current Transformer)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SB%20Series.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/SB%20Series.jpg?raw=true" alt="SB系列5A~200A勾表 ">
+                                <div class="image-desc"><BR>SB Series 5A~200A (Current Transformer)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TH.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/TH.jpg?raw=true" alt="TH系列直讀式智慧水表 ">
+                                <div class="image-desc">TH Series Screw Type Water Meter(data interface)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/WT.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/WT.jpg?raw=true" alt="WT系列法蘭直讀式智慧水表 ">
+                                <div class="image-desc">WT Series Flange type Water meter(data interface)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/AS%20Series.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/AS%20Series.jpg?raw=true" alt="AS系列脈衝式智慧水表 ">
+                                <div class="image-desc">AS Series Screw Type Water Meter(Pulse Output Interface)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/AS%20Series%20Flange.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/AS%20Series%20Flange.jpg?raw=true" alt="AS系列法蘭脈衝式智慧水表 ">
+                                <div class="image-desc">AS Series Flange type Water Meter(Pulse Output Interface)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Time%20metering.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Time%20metering.jpg?raw=true" alt="計時用電系統冷暖空調閥門HVAC ">
+                                <div class="image-desc">Time Metering (Chiller Valve Tariff HVAC)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Energy%20and%20water.png?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Energy%20and%20water.png?raw=true" alt="水電智慧電表系統 ">
+                                <div class="image-desc">Energy and water Metering</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Meter%20with%20IC%20card.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Meter%20with%20IC%20card.jpg?raw=true" alt="智慧電表與IC卡 ">
+                                <div class="image-desc">Meter with IC Card</div>
+                             </div>
+        
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Multiple.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Multiple.jpg?raw=true" alt="多用戶感應卡系統 ">
+                                <div class="image-desc"><BR>Multiple Tenants Sharing one Contactless Card Reader</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Ball%20Court.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Ball%20Court.jpg?raw=true" alt="球場收費系統">
+                                <div class="image-desc">Direct Transfer Metering for Ball Courts</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Dispensing.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Dispensing.jpg?raw=true" alt="桌上型信用分配系統">
+                                <div class="image-desc">Desktop Credit Dispensing unit</div>
+                             </div>
+        
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true" alt="資料下載系統">
+                                <div class="image-desc">Data downloader software for desktop CDU (optional)</div>
+                             </div>
+        
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true" alt="多種髂片選擇">
+                                <div class="image-desc">Standard cards and cards design</div>
+                             </div>
+        
+        
+                           
+                        </div>
+                    </div>
+            
+                    <div class="category">
+                        <h2>Air solutions and others</h2>
+                        <div class="row">                   
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SD.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/SD.jpg?raw=true" alt="SD 系列空氣偵測器">
+                                <div class="image-desc">SD Series (Single dector) CO2, Temp, PM2.5, HCHO, CO, TVOC, O3, PM10 </div>
+                             </div>
+                                                           
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/IAQS.jpg?raw=true')">
+                                 <img src="https://github.com/Sethjesus/Photo/blob/main/IAQS.jpg?raw=true" alt="IAQS 多合一選擇TVOC,Temp,RH, CO2,PM2.5,HCHO,CO2,O3, PM10">
+                                 <div class="image-desc">IAQS photoionization TVOC, Temp/RH, CO2, PM2.5, HCHO, CO2, O3, PM10 (7 in 1 or 9 in 1)</div>
+                             </div>
+        
+                             <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/G6S.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/G6S.jpg?raw=true" alt="G6S清淨風系列空氣清新系統">
+                                <div class="image-desc">G6S Positive Pressure Ventilation</div>
+                            </div>
+        
+                          
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CTR230D.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CTR230D.jpg?raw=true" alt="CTR230D 溫濕度CO2 偵測面板">
+                                <div class="image-desc">CTR230D Temp./RH CO2</div>
+                            </div>
+        
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CTR230D-4.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CTR230D-4.jpg?raw=true" alt="CTR230-4 溫濕度,CO2,PM2.5 偵測面板">
+                                <div class="image-desc">CTR230-4 PM2.5, CO2, Temp. RH 4-in-1 Indoor Air Quality Monitoring Board</div>
+                            </div>
+        
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CTR230D-6.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CTR230D-6.jpg?raw=true" alt="CTR230-4 溫濕度,CO2,PM2.5 偵測面板">
+                                <div class="image-desc">CTR230-6 PM2.5, CO2,  HCHO, CO, Temp. RH 6-in-1 Indoor Air Quality Monitoring Board</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TV.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/TV.jpg?raw=true" alt="CTVP 偵測系統 CO2,HCHO, CO, PM2.5, PM10">
+                                <div class="image-desc">CTVP Sensors CO2, HCHO, CO, PM2.5 or PM10</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CB.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/CB.jpg?raw=true" alt="CB 系列雲端系統RJ45, 4G,wifi, Modbus RTU, MQTT/Https">
+                                <div class="image-desc">CB (Cloud Box) Gateway, RJ45, 4G and wifi are available, Modbus RTU／ MQTT／Https</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/web.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/web.jpg?raw=true" alt="CB 系列雲端系統RJ45, 4G,wifi, Modbus RTU, MQTT/Https">
+                                <div class="image-desc">Web Service</div>
+                            </div>
+        
+                            <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Water%20leakage.jpg?raw=true')">
+                                <img src="https://github.com/Sethjesus/Photo/blob/main/Water%20leakage.jpg?raw=true" alt="MS系列漏水偵測">
+                                <div class="image-desc">MS Series Water Leakege device</div>
+                            </div>
+        
+        
+        
+        </div>
+                        </div>
+                    </div>
+                </div>
+            
+                <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+                <script>
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            wirelessSolutions: Array(20).fill().map((v, i) => ({ src: `https://via.placeholder.com/150x150?text=Wireless+${i + 1}` })),
+                            wiredSolutions: Array(24).fill().map((v, i) => ({ src: `https://via.placeholder.com/150x150?text=Wired+${i + 1}` })),
+                            iaqsAndOthers: Array(12).fill().map((v, i) => ({ src: `https://via.placeholder.com/150x150?text=IAQS+${i + 1}` }))
+                        },
+                        methods: {
+                            openInNewWindow(src) {
+                                window.open(src, '_blank', 'toolbar=0,location=0,menubar=0');
+                            }
+                        }
+                    });
+                </script>
+            </body>
+            </html>
+            </p>
+    </div>
+
+    <div id="news-en" class="content-container">
+        <h1>JP ESG Press Release</h1>
+        <p> <!DOCTYPE html>
+            <html lang="en">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CBAM 2023 - 2026</title>
+            <style>
+            body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              margin: 0;
+              padding: 0;
+              background-color: #f4f4f4;
+              color: #333;
+            }
+            
+            header {
+              background-color: #007BFF;
+              color: #fff;
+              padding: 10px 20px;
+              text-align: center;
+            }
+            
+            article {
+              max-width: 800px;
+              margin: 20px auto;
+              padding: 20px;
+              background-color: #fff;
+              box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+            }
+            
+            section {
+              margin-bottom: 20px;
+            }
+            </style>
+            </head>
+            <body>
+            <header>
+              <h1>Carbon Border Adjustment Mechanism (CBAM) Overview</h1>
+            </header>
+            
+            <article>
+              <section>
+                <h2>Introduction</h2>
+                <p>The Carbon Border Adjustment Mechanism is designed to prevent carbon leakage and promote global carbon emissions reduction.</p>
+              </section>
+              <section>
+                <h2>2023 - 2025 Implementation</h2>
+                <p>The initial phase of CBAM focuses on regulatory adjustments and gradual inclusion of import sectors. Here are the details:</p>
+                <ul>
+                  <li>2023: Introduction and testing phase.</li>
+                  <li>2024: Expansion to cover more industries.</li>
+                  <li>2025: Full enforcement begins.</li>
+                </ul>
+              </section>
+              <section>
+                <h2>Policy</h2>
+                <p>Detailed policies of CBAM including tariffs and adjustments specific to high-carbon products.</p>
+              </section>
+              <section>
+                <h2>Solutions</h2>
+                <p>Innovative approaches to meet CBAM regulations, including technological advancements and strategic partnerships.</p>
+              </section>
+              <section>
+                <h2>Looking Ahead to 2026</h2>
+                <p>Predictions and expected developments for the year 2026, including further international cooperation.</p>
+              </section>
+            </article>
+            
+            </body>
+            </html>
+
+            <!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG Partnership Announcement</title>
+<!-- 引入 Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- 引入 Vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<style>
+    .marquee {
+        width: 100%;
+        background-color: #004D40; /* Dark Green Background */
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 8px 0;
+    }
+    .marquee p {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); }
+    }
+    .content {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        text-align: justify;
+    }
+</style>
+</head>
+<body>
+<div id="app" class="container">
+    <div class="marquee">
+        <p>Announcement: We are excited to announce a new ESG partnership with </p>
+    </div>
+    <div class="content">
+        <h1 class="header text-center">ESG Partnership with Charsire</h1>
+        <p>We are thrilled to announce our recent ESG partnership with Charsire, a leader in biotechnology innovations. This collaboration is aimed at enhancing our commitments to environmental, social, and governance (ESG) standards. Together, we will work on various initiatives to promote sustainability and social responsibility in our operations and product development.</p>
+        <p>This partnership reflects our dedication to building a more sustainable future and underscores the importance of strong collaborative efforts in achieving significant ESG goals. By combining our resources and expertise, we aim to make a positive impact not just within our companies but also in the wider community</p>
+        <p>Stay tuned for more updates as we embark on this exciting journey towards greater sustainability and improved community engagement</p>
+        <p>July 2024 Announcement</p>
+
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            announcement: '📢 Announcement: We are excited to announce a new ESG partnership with 儕陞生技!',
+            title: 'ESG Partnership with 儕陞生技',
+            paragraph1: 'We are thrilled to announce our recent ESG partnership with 儕陞生技, a leader in biotechnology innovations. This collaboration is aimed at enhancing our commitments to environmental, social, and governance (ESG) standards. Together, we will work on various initiatives to promote sustainability and social responsibility in our operations and product development.',
+            paragraph2: 'This partnership reflects our dedication to building a more sustainable future and underscores the importance of strong collaborative efforts in achieving significant ESG goals. By combining our resources and expertise, we aim to make a positive impact not just within our companies but also in the wider community.',
+            paragraph3: 'Stay tuned for more updates as we embark on this exciting journey towards greater sustainability and improved community engagement.'
+        }
+    });
+</script>
+</body>
+</html>
+
+      </p>
+    </div>
+
+    <div id="download-en" class="content-container">
+        <h1>Download</h1>
+        <p>
+
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Download Section</title>
+                <!-- Bootstrap CSS -->
+                <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+    
+                    body {
+                background-color: #f4f4f4;
+            }
+                    .header {
+                        background-color: #007BFF;
+                        color: white;
+                        padding: 10px 0;
+                        text-align: center;
+                        margin-bottom: 20px;
+                    }
+                    .download-link {
+                        margin: 5px 0;
+                    }
+                    .product-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 20px;
+            }
+            .product {
+                background-color: white;
+                border: 1px solid #ddd;
+                margin: 10px;
+                width: calc(25% - 20px);
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                transition: transform 0.3s ease-in-out;
+            }
+            .product:hover {
+                transform: scale(1.05);
+            }
+            .product a {
+                color: #333;
+                text-decoration: none;
+                display: block;
+                padding: 20px;
+                text-align: center;
+            }
+            @media (max-width: 768px) {
+                .product {
+                    width: calc(50% - 20px);
+                }
+            }
+            @media (max-width: 480px) {
+                .product {
+                    width: calc(100% - 20px);
+                }
+            }
+      
+                </style>
+            </head>
+            <body>
+               
+                    <div id="app" class="container">
+                        <h1 class="header">Product Catalogue</h1>
+                        <div class="product-container">
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1SOLc5_J5zrWZEo?e=LlHb5z">UDM Wired EMS Solution</a>
+                            </div>
+
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1ohQKaa6cFxwHB8?e=CpwrRy">UDM Wireless-Product-Brochure</a>
+                            </div>
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1iUgxyzx5FOMwAy?e=LSNCcb">UDM Smart-Meter</a>
+                            </div>
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOngatPesPbYD_qb-g?e=Z8GuNe">UDM Gateway GW06-04</a>
+                            </div>
+    
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1YzyiLTXpMBHj4L?e=4uHEKG">EDM_Studio-electricity-charge-Solution</a>
+                            </div>
+                            
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1uizFGzfZsC1PVE?e=F517A6">UDM PSM-Profile</a>
+                            </div>
+    
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1d42rBnTkUKO6dW?e=gdyIbP">UDM Wired-Product-CT-Clamp</a>
+                            </div>
+    
+                            <div class="product">
+                                <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1l0cSBWCOYD700a?e=kaL7R9">UDM Water-Meter-Solution</a>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+                
+                                
+                        
+                    <h1 class="header">Installation Guide</h1>
+                    <p class="text-center">
+                        <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOngatPesPbYD_qb-g?e=Z8GuNe" class="btn btn-success btn-lg">Gateway GW06/08</a>
+                    </p>
+                    <p class="text-center">
+                        <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1_07W-aBbU-IJH5?e=0sbAKb" class="btn btn-success btn-lg">Gateway with TCP Modbus</a>
+    
+                           
+                        
+                    </p>
+                    <h1 class="header">Certificate</h1>
+                    <p class="text-center">
+                        <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOlUc_dutl_8vXpHPy?e=yULEta" class="btn btn-info btn-lg">Smart Energy Meter COM2</a>
+                    </p>
+                    <p class="text-center">
+                        <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm2C9rpr6lXW9bLzm?e=Emxl46" class="btn btn-info btn-lg">Smart Energy Meter COM3/CM04</a>
+                    </p>
+                    <h1 class="header">Environmental Solutions PM2.5 & Air Quality</h1>
+                    <p class="text-center">
+                        <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOnB5Pekod3h7_6pRe?e=FOejQB" class="btn btn-warning btn-lg">Operation manual IAQS Series</a>
+                    </p>
+                </div>
+            
+                <!-- Vue.js -->
+                <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+                <!-- Bootstrap and Popper -->
+                <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+                <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                <script>
+                    new Vue({
+                        el: '#app',
+                        data: {
+                            columns: [
+                                [
+                                    { label: 'Wired-EMS-Solution', url: 'https://1drv.ms/b/s!Ag83-ZLdP_aOm1SOLc5_J5zrWZEo?e=LlHb5z' },
+                                    { label: 'UDM Wireless-Product-Brochure', url: 'https://your_onedrive_link_to_udm_wireless_product_brochure' },
+                                    { label: 'UDM Smart-Meter', url: 'https://your_onedrive_link_to_udm_smart_meter' },
+                                    { label: 'UDM Wireless-Product-Package', url: 'https://your_onedrive_link_to_udm_wireless_product_package' },
+                                    { label: 'UDM Gateway GW06-04', url: 'https://your_onedrive_link_to_udm_gateway_gw06_04' }
+                                ],
+                                [
+                                    { label: 'EDM_studio-electricity-charge-Solution', url: 'https://your_onedrive_link_to_edm_studio_electricity_charge_solution' },
+                                    { label: 'UDM PSM-Profile', url: 'https://your_onedrive_link_to_udm_psm_profile' },
+                                    { label: 'UDM Wired-Product-CT-Clamp', url: 'https://your_onedrive_link_to_udm_wired_product_ct_clamp' },
+                                    { label: 'UDM Water-Meter-Solution', url: 'https://your_onedrive_link_to_udm_water_meter_solution' }
+                                ]
+                            ]
+                        }
+                    });
+                </script>
+            </body>
+            </html>
+
+
+
+
+
+
+
+
+
+
+            
+        </p>
+    </div>
+
+    <div id="consult-en" class="content-container">
+        <h1>Consult</h1>
+        <p><br><br><br><br><br>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Three-Phase Power Consumption Calculator</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+                    .container {
+                        max-width: 700px;
+                        margin-top: 20px;
+                        padding: 20px;
+                        background-color: white;
+                        border-radius: 8px;
+                        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                    }
+                    label, input, select, button {
+                        margin-bottom: 20px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div id="powerCalculatorApp-en" class="d-flex justify-content-center align-items-center vh-100">
+                    <div class="container">
+                        <h1 class="text-center mb-3">Three-Phase Power Consumption Calculator</h1>
+                        <form @submit.prevent="calculateResults">
+                            <div class="mb-3">
+                                <label for="connectionType-en" class="form-label">Connection Type:</label>
+                                <select id="connectionType-en" class="form-select" v-model="connectionType" @change="updateLineVoltage">
+                                    <option value="delta">Delta</option>
+                                    <option value="wye">Wye</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phaseVoltage-en" class="form-label">Phase Voltage (V):</label>
+                                <input type="number" id="phaseVoltage-en" class="form-control" v-model.number="phaseVoltage" @input="updateLineVoltage">
+                            </div>
+                            <div class="mb-3">
+                                <label for="lineVoltage-en" class="form-label">Line Voltage (V):</label>
+                                <input type="number" id="lineVoltage-en" class="form-control" v-model="lineVoltage" readonly>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="phaseCurrentR-en" class="form-label">Phase Current R (A):</label>
+                                    <input type="number" id="phaseCurrentR-en" class="form-control" v-model.number="phaseCurrentR" @input="updateCurrents">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="phaseCurrentS-en" class="form-label">Phase Current S (A):</label>
+                                    <input type="number" id="phaseCurrentS-en" class="form-control" v-model.number="phaseCurrentS" @input="updateCurrents">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="phaseCurrentT-en" class="form-label">Phase Current T (A):</label>
+                                    <input type="number" id="phaseCurrentT-en" class="form-control" v-model.number="phaseCurrentT" @input="updateCurrents">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="lineCurrent-en" class="form-label">Line Current (A):</label>
+                                <input type="number" id="lineCurrent-en" class="form-control" v-model="lineCurrent" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="powerFactor-en" class="form-label">Power Factor (0-1):</label>
+                                <input type="number" id="powerFactor-en" class="form-control" v-model.number="powerFactor" min="0" max="1" step="0.01">
+                            </div>
+                            <div class="mb-3">
+                                <label for="costPerUnit-en" class="form-label">Cost per kWh ($):</label>
+                                <input type="number" id="costPerUnit-en" class="form-control" v-model.number="costPerUnit" step="0.01">
+                            </div>
+                            <div class="mb-3">
+                                <label for="hoursUsed-en" class="form-label">Usage Hours:</label>
+                                <input type="number" id="hoursUsed-en" class="form-control" v-model.number="hoursUsed">
+                            </div>
+                            <div class="mb-3">
+                                <label for="carbonCoefficient-en" class="form-label">Carbon Emission Coefficient (kg CO₂/kWh):</label>
+                                <input type="number" id="carbonCoefficient-en" class="form-control" v-model.number="carbonCoefficient" step="0.001">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Calculate</button>
+                        </form>
+                        <div id="results-en" class="mt-3" v-if="resultsShown">
+                            <p>Apparent Power: {{ apparentPower.toFixed(3) }} kVA</p>
+                            <p>Real Power: {{ realPower.toFixed(3) }} kW</p>
+                            <p>Reactive Power: {{ reactivePower.toFixed(3) }} kVAR</p>
+                            <p>Total Cost: ${{ totalCost.toFixed(2) }}</p>
+                            <p>Power Consumption: {{ totalPowerConsumption.toFixed(3) }} kWh</p>
+                            <p>Apparent Power Consumption: {{ totalApparentPower.toFixed(3) }} kVAh</p>
+                            <p>Carbon Emissions: {{ totalCarbonEmission.toFixed(3) }} kg CO₂</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div>
+                    <img src="https://github.com/Sethjesus/Photo/blob/main/EFormula.jpg?raw=true" alt="Formula" style="display: block; margin: auto; width: 50%;">
+
+            </div>
+                <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
+                <script>
+                    Vue.createApp({
+                        data() {
+                            return {
+                                connectionType: 'delta',
+                                phaseVoltage: 0,
+                                lineVoltage: 0,
+                                phaseCurrentR: 0,
+                                phaseCurrentS: 0,
+                                phaseCurrentT: 0,
+                                lineCurrent: 0,
+                                powerFactor: 0.95,
+                                costPerUnit: 0.10,
+                                hoursUsed: 0,
+                                carbonCoefficient: 0.495,
+                                apparentPower: 0,
+                                realPower: 0,
+                                reactivePower: 0,
+                                totalCost: 0,
+                                totalPowerConsumption: 0,
+                                totalApparentPower: 0,
+                                totalCarbonEmission: 0,
+                                resultsShown: false
+                            };
+                        },
+                        methods: {
+                            updateLineVoltage() {
+                                const sqrt3 = Math.sqrt(3);
+                                this.lineVoltage = (this.connectionType === 'wye') ? this.phaseVoltage * sqrt3 : this.phaseVoltage;
+                            },
+                            updateCurrents() {
+                                const sqrt3 = Math.sqrt(3);
+                                this.lineCurrent = (this.connectionType === 'delta') ? (this.phaseCurrentR + this.phaseCurrentS + this.phaseCurrentT) / sqrt3 : (this.phaseCurrentR + this.phaseCurrentS + this.phaseCurrentT) / 3;
+                            },
+                            calculateResults() {
+                                const sqrt3 = Math.sqrt(3);
+                                this.apparentPower = this.phaseVoltage * (this.phaseCurrentR + this.phaseCurrentS + this.phaseCurrentT) / 1000; // Sum of phase currents
+                                this.realPower = this.apparentPower * this.powerFactor;
+                                this.reactivePower = Math.sqrt(this.apparentPower ** 2 - this.realPower ** 2);
+                                this.totalCost = this.realPower * this.costPerUnit * this.hoursUsed;
+                                this.totalCarbonEmission = this.apparentPower * this.hoursUsed * this.carbonCoefficient;
+                                this.totalPowerConsumption = this.realPower * this.hoursUsed;
+                                this.totalApparentPower = this.apparentPower * this.hoursUsed;
+                                this.resultsShown = true;
+                            }
+                        }
+                    }).mount('#powerCalculatorApp-en');
+                </script>
+            </body>
+            </html>
+            
+            
+          
+         
+           
+            
+
+            
+        </p>
+    </div>
+
+    <div id="contact-en" class="content-container">
+        <h1>Contact</h1>
+        <p>
+            <!DOCTYPE html>
+            <html lang="zh">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Contact Us - UDM Group Technology Co., Ltd.</title>
+            <!-- 引入 Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <!-- 引入 Vue.js -->
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+            <style>
+                body, html {
+                    height: 100%;
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                }
+                #vue-container {
+                    text-align: center;
+                    max-width: 800px;
+                    padding: 20px;
+                    background: white;
+                    border-radius: 8px;
+                    margin: auto;
+                    margin-top: 50px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                }
+                .image-area, .partners-area {
+                    margin-bottom: 20px;
+                }
+                img {
+                    max-width: 100%; /* 图片响应式调整大小 */
+                    height: auto;
+                }
+            </style>
+            </head>
+            <body>
+                <div id="vue-container">
+                    <div class="image-area">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/UDM%20Logo.png?raw=true" alt="Company Logo"> 
+                    </div>
+                    <h1>Contact Us</h1>
+                    <p><strong>{{ companyName }}</strong></p>
+                    <p><strong>Address:</strong> {{ address }}</p>
+                    <p><strong>Telephone:</strong> {{ telephone }}</p>
+                    <p><strong>Fax:</strong> {{ fax }}</p>
+                    <p><strong>WhatsApp:</strong> {{ whatsapp }}</p>
+                    <p><strong>Email:</strong> <a :href="'mailto:' + email">{{ email }}</a></p>
+                    <div class="partners-area">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/SDGs.jpg?raw=true" alt="Partners Image"> 
+                    </div>
+                    <p>&copy; 2024 All Rights Reserved.</p>
+                </div>
+                
+                <script>
+                    new Vue({
+                        el: '#vue-container',
+                        data: {
+                            companyName: 'UDM Group Technology Co., Ltd.',
+                            address: '12F.-1, No.872, Zhongzheng Rd., Zhonghe Dist., New Taipei City 235, Taiwan (R.O.C.)',
+                            telephone: '+886-2-66202388 Ext.17',
+                            fax: '+886-2-66202720',
+                            whatsapp: '+886926800215',
+                            email: '201.esg@udmgroup.com'
+                        }
+                    });
+                </script>
+                
+            </body>
+            </html>
+            
+
+
+
+        </p>
+    </div>
+   
+
+    
+
+    <div id="home-zh" class="content-container">
+        <h1>歡迎光臨JP ESG</h1>
+        <p> <!DOCTYPE html>
+            <html lang="zh">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>JP ESG 關於我們</title>
+                <style>
+                    h1 {
+                        color: blue; /* 設置H1標籤的字體顏色為藍色 */
+                    }
+                    body {
+                        font-family: Arial, sans-serif;
+                        margin: 0;
+                        padding: 0;
+                        background-color: #f0f0f0;
+                    }
+                    header {
+                        background-color: #333;
+                        color: white;
+                        padding: 10px;
+                        text-align: center;
+                        font-size: 24px;
+                    }
+                    .content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: calc(100vh - 50px);
+                        position: relative;
+                    }
+                    .book-container {
+                        position: relative;
+                        width: 750px;
+                        height: 1000px;
+                        perspective: 1500px;
+                        margin: 20px 0;
+                    }
+                    .book {
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        transform-style: preserve-3d;
+                        transform-origin: left;
+                        transition: transform 1s;
+                    }
+                    .page {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        background-color: white;
+                        border: 1px solid #ccc;
+                        box-shadow: 0 0 5px rgba(0,0,0,0.3);
+                        backface-visibility: hidden;
+                        transform-origin: left;
+                        transition: transform 1s;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                    .page img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                    .controls {
+                        margin-top: 20px;
+                    }
+                    button {
+                        margin: 0 10px;
+                        padding: 10px 20px;
+                        font-size: 16px;
+                    }
+                    .spinner {
+                        width: 100px;
+                        height: 100px;
+                        background-image: url('https://github.com/Sethjesus/Photo/blob/main/wand.jpg?raw=true');
+                        background-size: cover;
+                        position: absolute;
+                        left: 50%;
+                        transform: translateX(-50px) rotate(0deg); /* Initial position */
+                        animation: sway 2s ease-in-out infinite;
+                    }
+                    .right-image {
+                        float: right;
+                        margin: 10px;
+                        width: 150px;
+                        height: auto;
+                    }
+                    .marquee {
+                        width: 100%;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        box-sizing: border-box;
+                        
+                    }
+                    .marquee span {
+                        display: inline-block;
+                        padding-left: 100%;
+                        animation: marquee 10s linear infinite;
+                    }
+                    @keyframes sway {
+                        0%, 100% { transform: translateX(-50px) rotate(-10deg); }
+                        50% { transform: translateX(-50px) rotate(10deg); }
+                    }
+                    @keyframes marquee {
+                        0% { transform: translate(0, 0); }
+                        100% { transform: translate(-100%, 0); }
+                    }
+                </style>
+            </head>
+            <body>
+                <header>
+                    景沛ESG 國家政策輔導
+                </header>
+                <div class="content">
+                    <div style="display: flex; align-items: center;">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/ESG%20image.jpg?raw=true" alt="ESG Image">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/EMS.jpg?raw=true" alt="EMS Image" style="width: 300px; height: 300px;">
+                    </div>
+                    <div class="spinner"></div>  <!-- Spinning circle added here -->
+                    <h1> 景沛ESG 魔法寶典</h1>
+                    <div class="book-container">
+                        <div class="book" id="book">
+                            <div class="page" id="page1"><img src="https://github.com/Sethjesus/Photo/blob/main/Coverpage.jpg?raw=true" alt="Page 1"></div>
+                            <div class="page" id="page2"><img src="https://github.com/Sethjesus/Photo/blob/main/Brochure1.jpg?raw=true" alt="Page 2"></div>
+                            <div class="page" id="page3"><img src="https://github.com/Sethjesus/Photo/blob/main/Brochure2.jpg?raw=true" alt="Page 3"></div>
+                            <div class="page" id="page4"><img src="https://github.com/Sethjesus/Photo/blob/main/Brochure3.jpg?raw=true" alt="Page 4"></div>
+                            <div class="page" id="page5"><img src="https://github.com/Sethjesus/Photo/blob/main/Book1.jpg?raw=true" alt="Page 5"></div>
+                            <div class="page" id="page6"><img src="https://github.com/Sethjesus/Photo/blob/main/Book2.jpg?raw=true" alt="Page 6"></div>
+                            <div class="page" id="page7"><img src="https://github.com/Sethjesus/Photo/blob/main/Book3.jpg?raw=true" alt="Page 7"></div>
+                            <div class="page" id="page8"><img src="https://github.com/Sethjesus/Photo/blob/main/Book4.jpg?raw=true" alt="Page 8"></div>
+                            <div class="page" id="page9"><img src="https://github.com/Sethjesus/Photo/blob/main/Book5.jpg?raw=true" alt="Page 9"></div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button id="prev">上一頁</button>
+                        <button id="next">下一頁</button>
+                        <button id="stop">停止</button>
+                        <button id="toCover">回封面</button>
+                    </div>
+                  
+                    <div class="marquee">
+                        <span>
+                            欲知政府補助方案與ESG政策，請洽 02-6620-2388 新北市中和區中正路872號12樓之一
+                        </span>
+                    </div>
+                    
+                </div>
+                <script>
+                    let currentPage = 0;
+                    const totalPages = 9; // Update this number based on the actual total pages
+                    let interval;
+            
+                    function showPage(page) {
+                        const pages = document.querySelectorAll('.page');
+                        pages.forEach((pageElem, index) => {
+                            pageElem.style.transform = (index === page) ? "rotateY(0deg)" : "rotateY(-180deg)";
+                        });
+                    }
+            
+                    function nextPage() {
+                        currentPage = (currentPage + 1) % totalPages;
+                        showPage(currentPage);
+                    }
+            
+                    function prevPage() {
+                        currentPage = (currentPage - 1 + totalPages) % totalPages;
+                        showPage(currentPage);
+                    }
+            
+                    function startAutoPageTurn() {
+                        if (interval) clearInterval(interval);
+                        interval = setInterval(nextPage, 8000);
+                    }
+            
+                    function stopAutoPageTurn() {
+                        clearInterval(interval);
+                        showPage(0); // Reset to first page flat when stopping
+                    }
+            
+                    function toCover() {
+                        showPage(0); // 顯示第一頁
+                        stopAutoPageTurn(); // 停止自動翻頁
+                        startAutoPageTurn(); // Restart auto-turning from the cover
+                    }
+            
+                    document.getElementById('next').addEventListener('click', function() {
+                        nextPage();
+                        startAutoPageTurn();
+                    });
+                    document.getElementById('prev').addEventListener('click', function() {
+                        prevPage();
+                        startAutoPageTurn();
+                    });
+                    document.getElementById('stop').addEventListener('click', stopAutoPageTurn);
+                    document.getElementById('toCover').addEventListener('click', toCover);
+            
+                    window.onload = function() {
+                        showPage(0); // Start with the first page flat
+                        startAutoPageTurn();
+                    };
+                </script>
+            </body>
+            </html>
+            
+    
+                    <h1>關於我們：</h1>
+                    <h3>JP ESG 的故事 - 助力可持續未來</h3>
+                    <p>在 JP ESG，我們的旅程始於對地球的深刻承諾和對未來的創新願景。認識到每一個行動都會影響我們的星球，我們開始致力於改變企業和個人的能耗方式。通過先進的能源監控和實現淨零碳排放的努力，
+                      我們不僅是一家公司，更是致力於保護世界的運動。</p>
+                    <h3>創新的起源</h3>
+                    <p>JP ESG 的想法在一個秋天的晚上誕生，當時我們的創始人楊教授與學生Patty親眼目睹了能源浪費對當地社區的影響。夜晚的公園裡燈火通明，辦公室在工作人員離開後依然燈火通明。這種不必要的能源消耗
+                      不僅浪費資源，還大大增加了碳排放。楊教授問自己，“如果我們能改變這一切呢？如果每個人都能高效地查看和管理他們的能耗呢？”</p>
+                    <p>在這個想法的推動下，JP ESG 成立了，目的是開發智能、直觀的監控系統，這些系統可以輕鬆集成到任何家庭或企業中。這些系統不僅提供實時能耗的洞察，還指導用戶優化使用並減少碳足跡。</p>
+                    <h3>能源監控的革命</h3>
+                    <p>JP ESG 於2023年推出了其首個能源監控系統。這是一項革命性的技術，利用實時數據分析為用戶提供關於其能耗的可操作見解。用戶可以即時看到他們的能耗，識別高峰使用時間，並獲得量身定製的減少能耗的建議。</p>
+                    <p>但我們並未止步於此。我們看到了通過將我們的技術與可再生能源源結合來影響更大變化的潛力。我們的系統開始幫助用戶不僅監控，還能無縫集成現有基礎設施，轉向更清潔的能源選項，如太陽能或風能。</p>
+                    <h2>淨零願景</h2>
+                    <p>隨著我們的技術進步，我們的雄心也隨之增長。JP ESG 承諾實現淨零碳未來，目標是在2030年前顯著減少全球碳排放。我們與環境科學家、政策制定者和地方社區合作，擴大我們的影響力。每售出一件產品，
+                      都為全球植樹項目和可持續實踐研究做出貢獻。</p>
+                    <h2>地球的守護者</h2>
+                    <p>今天，JP ESG 不僅因其創新產品而聞名，還因其對地球的承諾而受到認可。我們不僅僅是技術提供者，更是地球的守護者。我們的持續倡議包括提高可持續生活意識的教育項目和鼓勵綠色生活方式的社區項目。</p>
+                    <h2>加入我們</h2>
+                    <p>我們在 JP ESG 相信，保護地球需要集體行動。我們邀請您加入這一關鍵使命——無論是將 JP ESG 的監控系統融入您的生活，參與社區可持續項目，還是做出更明智的能源選擇。每一個努力都很重要。</p>
+                    <p>一起，我們可以打造一個可持續的未來，確保我們的星球在未來世代仍然充滿活力和生機。讓我們一瓦一瓦地推動變革。加入我們 JP ESG，每一天都是邁向更清潔、更綠色星球的一步。</p>
+                    <!-- 更多內容 -->
+                </body>
+                </html>
+                。</p>
+          </div>
+    </p>
+    </div>
+
+    <div id="products-zh" class="content-container">
+        <h1>產品</h1>
+        <div>
+        <p><!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Chiller System Slideshow</title>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+                <style>
+                    .slide {
+                        display: none;
+                        width: 1280px; /* Set the width of the slide */
+                        height: 720px; /* Set the height of the slide */
+                    }
+                    .slide img {
+                        width: 70%;
+                        height: 70%;
+                        object-fit: cover;
+                    }
+                    .active {
+                        display: block;
+                    }
+                    .swing {
+                        position: relative;
+                        display: inline-block;
+                        width: 100px; /* Set the desired width */
+                        height: 100px; /* Set the desired height */
+                        animation: swing 2s infinite;
+                    }
+                    @keyframes swing {
+                        0% { transform: rotate(0deg); }
+                        25% { transform: rotate(10deg); }
+                        50% { transform: rotate(0deg); }
+                        75% { transform: rotate(-10deg); }
+                        100% { transform: rotate(0deg); }
+                    }
+                    .container-flex {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                </style>
+            </head>
+            <body>
+            <div id="slideshowApp" class="container mt-5">
+                <div class="container-flex">
+                    <div class="slideshow-container">
+                        <div v-for="(image, index) in images" :key="index" :class="{'slide': true, 'active': index === currentSlide}">
+                            <img :src="image" :alt="'Chiller System Slide ' + (index + 1)">
+                        </div>
+                    </div>
+                    <div class="swing">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Chillier.jpg?raw=true" alt="Swinging Chiller Image">
+                    </div>
+                </div>
+                <div class="controls mt-3 text-center">
+                    <button class="btn btn-primary" @click="prevSlide">上一頁</button>
+                    <button class="btn btn-primary" @click="nextSlide">下一頁</button>
+                    <button class="btn btn-danger" @click="stopSlideshow">停止</button>
+                    <button class="btn btn-success" @click="startSlideshow">開始</button>
+                    <button class="btn btn-info" @click="firstSlide">首頁</button>
+                </div>
+            </div>
+            
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+            <script>
+            new Vue({
+                el: '#slideshowApp',
+                data: {
+                    images: [
+                        'https://github.com/Sethjesus/Photo/blob/main/C1.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C2.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C3.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C4.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C5.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C6.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C7.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C8.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C9.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C10.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C11.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C12.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C13.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C14.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C15.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C16.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C17.jpg?raw=true',
+                        'https://github.com/Sethjesus/Photo/blob/main/C18.jpg?raw=true',
+                        // Add more images as needed...
+                    ],
+                    currentSlide: 0,
+                    interval: null
+                },
+                methods: {
+                    nextSlide() {
+                        this.currentSlide = (this.currentSlide + 1) % this.images.length;
+                    },
+                    prevSlide() {
+                        this.currentSlide = (this.currentSlide + this.images.length - 1) % this.images.length;
+                    },
+                    stopSlideshow() {
+                        clearInterval(this.interval);
+                    },
+                    startSlideshow() {
+                        this.stopSlideshow();
+                        this.interval = setInterval(this.nextSlide, 3000);
+                    },
+                    firstSlide() {
+                        this.currentSlide = 0;
+                    }
+                },
+                mounted() {
+                    this.startSlideshow();
+                }
+            });
+            </script>
+            
+            <!-- Bootstrap JS and dependencies -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            </body>
+            </html>
+            </p>
+    </div>
+    <!DOCTYPE html>
+    <html lang="zh">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Image Gallery</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            .image-window {
+                height: 500px; /* Increased height to accommodate text below the image */
+                border: 1px solid #ccc;
+                margin-bottom: 1px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                overflow: hidden;
+            }
+            .image-window img {
+                transition: transform 0.5s ease; /* Smooth transform effect */
+                max-width: 80%;
+                max-height: 60%; /* Adjusted to leave space for text */
+            }
+            .image-window img:hover {
+                transform: scale(1.1); /* Scale up image on hover */
+            }
+            .image-desc {
+                text-align: center;
+                font-size: 2.0em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <h1 class="text-center mt-4">景沛藝廊</h1>
+            <div class="景沛藝廊">
+                <h2>無線方案</h2>
+                <div class="row">
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/GW06.jpg?raw=true" alt="GW06 (藍芽對WiFi 2.4G) Gateway">
+                        <div class="image-desc">GW06 (BLE to WiFi 2.4G) Gateway</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06-03.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/GW06-03.jpg?raw=true" alt="GW06-03/GW08-03 藍芽 對Modbus TCP Gateway">
+                        <div class="image-desc">GW06-03/GW08-03 藍芽 對Modbus TCP Gateway</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW08.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/GW08.jpg?raw=true" alt="GW08 窄頻1G 對 wifi 2.4G Gateway">
+                        <div class="image-desc">GW08 窄頻1G 對 wifi 2.4G Gateway</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/RP01.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/RP01.jpg?raw=true" alt="RP01 (藍芽對窄頻配合GW08) Gateway">
+                        <div class="image-desc">RP01 (藍芽對窄頻配合GW08) Gateway</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM02.jpg?raw=true" alt="CM02 (交流0.6A 到100A Dia. 16mm)鉤表">
+                        <div class="image-desc">CM02 (交流0.6A 到100A Dia. 16mm)鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM03.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM03.jpg?raw=true" alt="CM03 (交流 2A到250A Dia.24mm)鉤表">
+                        <div class="image-desc">CM03 (交流 2A到250A Dia.24mm)鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM04.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM04.jpg?raw=true" alt="CM04 (交流 3A到350A Dia.24mm)鉤表">
+                        <div class="image-desc">CM04 (交流 3A到350A Dia.24mm)鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02-04.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM02-04.jpg?raw=true" alt="CM02-04(交流 0.05A到15A Dia.16mm)鉤表">
+                        <div class="image-desc">CM02-04(交流 0.05A到15A Dia.16mm)鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02-06.png?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM02-06.png?raw=true" alt="CM02-06(交流 0.001A到0.5A Dia.16mm)鉤表">
+                        <div class="image-desc">CM02-06(交流 0.001A到0.5A Dia.16mm)鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true" alt="FM02(交流2A到1000A Dia.80mm)軟線鉤表">
+                        <div class="image-desc">FM02(交流2A到1000A Dia.80mm)軟線鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true" alt="FM03(交流3A到2000A Dia.105mm)軟線鉤表">
+                        <div class="image-desc">FM03(交流3A到2000A Dia.105mm)軟線鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/FM03.jpg?raw=true" alt="FM04(交流5A到3000A Dia.180mm)軟線鉤表">
+                        <div class="image-desc">FM04(交流5A到3000A Dia.180mm)軟線鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM03-05.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM03-05.jpg?raw=true" alt="CM03-05(交流2A到250A Dia.24mm)環溫鉤表">
+                        <div class="image-desc">CM03-05(交流2A到250A Dia.24mm)環溫與電流</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM04-05.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM04-05.jpg?raw=true" alt="CM04-05 (交流 3A到350A Dia.36mm)環溫鉤表">
+                        <div class="image-desc">CM04-05(交流3A到350A Dia.36mm)環溫與電流</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CM02-07.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CM02-07.jpg?raw=true" alt="CM02-07 (直流0.4A到20A Dia.16mm)鉤表">
+                        <div class="image-desc">CM02-07(直流0.4A到20A Dia.16mm)鉤表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TM01.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/TM01.jpg?raw=true" alt="TM01 (溫度量測 0 to 100 °C) 溫度計">
+                        <div class="image-desc">TM01(溫度量測0~100°C) 溫度計</div>
+                    </div>
+                    
+                    <div class="col-md-3 image-window" v-for="n in 20" key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06-04.jpg?raw=true')">
+                   <img src="https://github.com/Sethjesus/Photo/blob/main/GW06-04.jpg?raw=true" alt="GW06-04 and GW08-04 Bluetooth to WiFi and Narrowband to WiFi Gateway">
+                   <div class="image-desc">GW06-04/GW08-04 藍芽對WiFi/窄頻對WiFi2.4G/5G/乙太</div>
+               </div>
+               
+                <div class="col-md-3 image-window" v-for="n in 20" :key="'ws' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/GW06-06.jpg?raw=true')">
+                    <img src="https://github.com/Sethjesus/Photo/blob/main/GW06-06.jpg?raw=true" alt="GW06-06 (Modbus RTU to Modbus TCP) Hook Meter">
+                    <div class="image-desc">GW06-06 (Modbus RTU to Modbus TCP) 特殊Gateway</div>
+                </div>
+            </div>
+            
+               
+                
+            </div>
+    
+            <div class="category">
+                <h2>有線方案</h2>
+                <div class="row">
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SMB350-4.jpg?raw=true')">
+                       <img src="https://github.com/Sethjesus/Photo/blob/main/SMB350-4.jpg?raw=true" alt="SMB350-4三相智慧電表4組勾表">
+                       <div class="image-desc">SMB350-4三相智慧電表4組勾表</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SMB350-8.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/SMB350-8.jpg?raw=true" alt="SMB350-8三相智慧電表4組勾表">
+                        <div class="image-desc">SMB350-8三相智慧電表4組勾表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/ACS35.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/ACS35.jpg?raw=true" alt="ACS35觸控式資料顯示頻">
+                        <div class="image-desc">ACS35觸控式資料顯示頻</div>
+                     </div>
+
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/PM200.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/PM200.jpg?raw=true" alt="PM200 三相智慧電表">
+                        <div class="image-desc">PM200 三相智慧電表</div>
+                     </div>
+
+                     
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/PM210.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/PM210.jpg?raw=true" alt="PM210 三相智慧電表 ">
+                        <div class="image-desc">PM210 三相智慧電表V<sub>Line</sub>, V<sub>Phase</sub>, KVAR, KW, PF,Hz,Kwh</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/PM250.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/PM250.jpg?raw=true" alt="PM250 三相智慧電表 ">
+                        <div class="image-desc">PM250 三相智慧電表V<sub>Line</sub>, A, KVAR, KW, PF,Hz,Kwh</div>
+                     </div>
+
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TB%20Series.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/TB%20Series.jpg?raw=true" alt="TB 系系列100A~400A勾表 ">
+                        <div class="image-desc"><BR>TB 系系列100A~400A勾表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CT%20Series.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CT%20Series.jpg?raw=true" alt="CT 系列5A~200A勾表 ">
+                        <div class="image-desc"><BR>CT 系列5A~200A勾表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CT%20Series%20600.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CT%20Series%20600.jpg?raw=true" alt="CT 系列200A~600A勾表 ">
+                        <div class="image-desc"><BR>CT 系列200A~600A勾表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SB%20Series.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/SB%20Series.jpg?raw=true" alt="SB系列5A~200A勾表 ">
+                        <div class="image-desc"><BR>SB系列5A~200A勾表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TH.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/TH.jpg?raw=true" alt="TH系列直讀式智慧水表 ">
+                        <div class="image-desc">TH系列直讀式智慧水表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/WT.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/WT.jpg?raw=true" alt="WT系列法蘭直讀式智慧水表 ">
+                        <div class="image-desc">WT系列法蘭直讀式智慧水表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/AS%20Series.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/AS%20Series.jpg?raw=true" alt="AS系列脈衝式智慧水表 ">
+                        <div class="image-desc">AS系列脈衝式智慧水表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/AS%20Series%20Flange.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/AS%20Series%20Flange.jpg?raw=true" alt="AS系列法蘭脈衝式智慧水表 ">
+                        <div class="image-desc">AS系列法蘭脈衝式智慧水表</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Time%20metering.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Time%20metering.jpg?raw=true" alt="計時用電系統冷暖空調閥門HVAC ">
+                        <div class="image-desc">計時用電系統冷暖空調閥門HVAC</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Energy%20and%20water.png?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Energy%20and%20water.png?raw=true" alt="水電智慧電表系統 ">
+                        <div class="image-desc">水電智慧電表系統</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Meter%20with%20IC%20card.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Meter%20with%20IC%20card.jpg?raw=true" alt="智慧電表與IC卡 ">
+                        <div class="image-desc">智慧電表與IC卡</div>
+                     </div>
+
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Multiple.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Multiple.jpg?raw=true" alt="多用戶感應卡系統 ">
+                        <div class="image-desc"><BR>多用戶感應卡系統</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Ball%20Court.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Ball%20Court.jpg?raw=true" alt="球場收費系統">
+                        <div class="image-desc">球場收費系統</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Dispensing.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Dispensing.jpg?raw=true" alt="桌上型信用分配系統">
+                        <div class="image-desc">桌上型信用分配系統</div>
+                     </div>
+
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true" alt="資料下載系統">
+                        <div class="image-desc">資料下載系統</div>
+                     </div>
+
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Data%20download.jpg?raw=true" alt="多種髂片選擇">
+                        <div class="image-desc">多種卡片選擇</div>
+                     </div>
+
+
+                   
+                </div>
+            </div>
+    
+            <div class="category">
+                <h2>空氣處理方案與其他</h2>
+                <div class="row">                   
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/SD.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/SD.jpg?raw=true" alt="SD 系列空氣偵測器">
+                        <div class="image-desc">SD 系列空氣偵測器</div>
+                     </div>
+                                                   
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/IAQS.jpg?raw=true')">
+                         <img src="https://github.com/Sethjesus/Photo/blob/main/IAQS.jpg?raw=true" alt="IAQS 多合一選擇TVOC,Temp,RH, CO2,PM2.5,HCHO,CO2,O3, PM10">
+                         <div class="image-desc">IAQS 多合一選擇TVOC,Temp,RH,<BR> CO2,PM2.5,<BR>HCHO,CO2,O<sub>3</sub>, PM10</div>
+                     </div>
+
+                     <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/G6S.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/G6S.jpg?raw=true" alt="G6S清淨風系列空氣清新系統">
+                        <div class="image-desc">G6S清淨風系列空氣清新系統</div>
+                    </div>
+
+                  
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CTR230D.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CTR230D.jpg?raw=true" alt="CTR230D 溫濕度CO2 偵測面板">
+                        <div class="image-desc">CTR230D 溫濕度CO<sub>2</sub> 偵測面板</div>
+                    </div>
+
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CTR230D-4.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CTR230D-4.jpg?raw=true" alt="CTR230-4 溫濕度,CO2,PM2.5 偵測面板">
+                        <div class="image-desc">CTR230D 溫濕度,CO<sub>2</sub>, PM2.5 偵測面板</div>
+                    </div>
+
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CTR230D-6.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CTR230D-6.jpg?raw=true" alt="CTR230-4 溫濕度,CO2,PM2.5 偵測面板">
+                        <div class="image-desc">CTR230D 溫濕度,CO<sub>2</sub>,CO, HCHO ,PM2.5 偵測面板</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/TV.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/TV.jpg?raw=true" alt="CTVP 偵測系統 CO2,HCHO, CO, PM2.5, PM10">
+                        <div class="image-desc">CTVP 偵測系統 CO2,HCHO, CO, PM2.5, PM10</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/CB.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/CB.jpg?raw=true" alt="CB 系列雲端系統RJ45, 4G,wifi, Modbus RTU, MQTT/Https">
+                        <div class="image-desc">CB 系列雲端系統RJ45, 4G,wifi, Modbus RTU, MQTT/Https</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/web.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/web.jpg?raw=true" alt="CB 系列雲端系統RJ45, 4G,wifi, Modbus RTU, MQTT/Https">
+                        <div class="image-desc">雲端服務</div>
+                    </div>
+
+                    <div class="col-md-3 image-window" v-for="n in 24" :key="'wd' + n" @click="openInNewWindow('https://github.com/Sethjesus/Photo/blob/main/Water%20leakage.jpg?raw=true')">
+                        <img src="https://github.com/Sethjesus/Photo/blob/main/Water%20leakage.jpg?raw=true" alt="MS系列漏水偵測">
+                        <div class="image-desc">MS系列漏水偵測</div>
+                    </div>
+
+
+
+</div>
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            new Vue({
+                el: '#app',
+                data: {
+                    wirelessSolutions: Array(20).fill().map((v, i) => ({ src: `https://via.placeholder.com/150x150?text=Wireless+${i + 1}` })),
+                    wiredSolutions: Array(24).fill().map((v, i) => ({ src: `https://via.placeholder.com/150x150?text=Wired+${i + 1}` })),
+                    iaqsAndOthers: Array(12).fill().map((v, i) => ({ src: `https://via.placeholder.com/150x150?text=IAQS+${i + 1}` }))
+                },
+                methods: {
+                    openInNewWindow(src) {
+                        window.open(src, '_blank', 'toolbar=0,location=0,menubar=0');
+                    }
+                }
+            });
+        </script>
+    </body>
+    </html>
+    
+</div>
+
+
+    <div id="news-zh" class="content-container">
+        <h1>新聞發布</h1>
+        <p>       <!DOCTYPE html>
+            <html lang="zh">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>CBAM 2023 - 2026</title>
+            <style>
+            body {
+              font-family: Arial, sans-serif;
+              line-height: 1.6;
+              margin: 0;
+              padding: 0;
+              background-color: #f4f4f4;
+              color: #333;
+            }
+            
+            header {
+              background-color: #007BFF;
+              color: #fff;
+              padding: 10px 20px;
+              text-align: center;
+            }
+            
+            article {
+              max-width: 800px;
+              margin: 20px auto;
+              padding: 20px;
+              background-color: #fff;
+              box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+            }
+            
+            section {
+              margin-bottom: 20px;
+            }
+            </style>
+            </head>
+            <body>
+            <header>
+              <h1>碳邊境調整機制(CBAM)概覽</h1>
+            </header>
+            
+            <article>
+              <section>
+                <h2>介紹</h2>
+                <p>碳邊境調整機制旨在防止碳洩漏並促進全球碳排放減少。</p>
+              </section>
+              <section>
+                <h2>2023年至2025年實施</h2>
+                <p>CBAM的初始階段專注於監管調整和逐步包括進口部門。以下是詳情：</p>
+                <ul>
+                  <li>2023年：引入和測試階段。</li>
+                  <li>2024年：擴展至更多行業。</li>
+                  <li>2025年：全面執行開始。</li>
+                </ul>
+              </section>
+              <section>
+                <h2>政策</h2>
+                <p>CBAM的具體政策，包括對高碳產品的關稅和調整。</p>
+              </section>
+              <section>
+                <h2>解決方案</h2>
+                <p>滿足CBAM規定的創新方法，包括技術進步和戰略合作。</p>
+              </section>
+              <section>
+                <h2>展望2026年</h2>
+                <p>對2026年的預測和預期發展，包括進一步的國際合作。</p>
+              </section>
+            </article>
+            
+            </body>
+            </html>
+            <!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ESG合作夥伴關係公告</title>
+<!-- 引入 Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- 引入 Vue.js -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+<style>
+    .marquee {
+        width: 100%;
+        background-color: #004D40; /* 深綠色背景 */
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 8px 0;
+    }
+    .marquee p {
+        display: inline-block;
+        padding-left: 100%;
+        animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+        from { transform: translateX(0); }
+        to { transform: translateX(-100%); }
+    }
+    .content {
+        padding: 20px;
+        max-width: 800px;
+        margin: auto;
+        text-align: justify;
+    }
+</style>
+</head>
+<body>
+<div id="app" class="container">
+    <div class="marquee">
+        <p>公告：我們非常高興地宣布與儕陞生技達成新的ESG合作夥伴關係！</p>
+    </div>
+    <div class="content">
+        <h1 class="header text-center">與儕陞生技的ESG合作夥伴關係</h1>
+        <p>我們非常高興地宣布最近與儕陞生技達成了ESG合作夥伴關係，儕陞生技是生物技術創新的領導者。此次合作將協助儕陞生技作好廠內的用電管理，做好用電規劃與異常處理，減少不必要的用電浪費，達到低碳化目標，並進一步提昇對環境、社會及治理（ESG）標準的承諾。我們將共同開展多項倡議，以促進我們的運營和產品開發中的可持續性和社會責任</p>
+        <p>此次合作代表了景沛與儕陞生技共同構建永續發展的決心，並強調了在實現重要ESG目標時，強大的合作努力的重要性。通過結合我們的資源和專業技術，我們旨在不僅在我們公司內部，而且在更廣泛的國際中產生積極的影響。</p>
+        <p>請繼續關注，隨著我們邁向更大的可持續性和改善地球永續環境參與的激動人心的旅程，我們將會帶來更多更新。</p>
+            <BR><BR> 2024年七月
+        </p>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            announcement: '📢 公告：我們非常高興地宣布與儕陞生技達成新的ESG合作夥伴關係！',
+            title: '與儕陞生技的ESG合作夥伴關係',
+            paragraph1: '我們非常高興地宣布最近與儕陞生技達成了ESG合作夥伴關係，儕陞生技是生物技術創新的領導者。此次合作旨在加強我們對環境、社會及治理（ESG）標準的承諾。我們將共同開展多項倡議，以促進我們的運營和產品開發中的可持續性和社會責任。',
+            paragraph2: '此次合作反映了我們構建更可持續未來的決心，並強調了在實現重要ESG目標時，強大的合作努力的重要性。通過結合我們的資源和專業技術，我們旨在不僅在我們公司內部，而且在更廣泛的社區中產生積極的影響。',
+            paragraph3: '請繼續關注，隨著我們邁向更大的可持續性和改善社區參與的激動人心的旅程，我們將會帶來更多更新。'
+        }
+    });
+</script>
+</body>
+</html>
+
+            </p>
+    
+          </div>
+        </p>
+    
+
+    <div id="download-zh" class="content-container">
+        
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Download Section</title>
+            <!-- Bootstrap CSS -->
+            <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+            <style>
+
+                body {
+            background-color: #f4f4f4;
+        }
+                .header {
+                    background-color: #007BFF;
+                    color: white;
+                    padding: 10px 0;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+                .download-link {
+                    margin: 5px 0;
+                }
+                .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .product {
+            background-color: white;
+            border: 1px solid #ddd;
+            margin: 10px;
+            width: calc(25% - 20px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: scale(1.05);
+        }
+        .product a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            padding: 20px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            .product {
+                width: calc(50% - 20px);
+            }
+        }
+        @media (max-width: 480px) {
+            .product {
+                width: calc(100% - 20px);
+            }
+        }
+  
+            </style>
+        </head>
+        <body>
+           
+                <div id="app" class="container">
+                    <h1 class="header">產品目錄</h1>
+                    <div class="product-container">
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1SOLc5_J5zrWZEo?e=LlHb5z">有線EMS解決方案
+                            </a>
+                        </div>
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1ohQKaa6cFxwHB8?e=CpwrRy">無線EMS解決方案</a>
+                        </div>
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1iUgxyzx5FOMwAy?e=LSNCc">智慧電表系列</a>
+                        </div>
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOngatPesPbYD_qb-g?e=Z8GuNe">UDM閘道器GW06-04</a>
+                        </div>
+
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1YzyiLTXpMBHj4L?e=4uHEKG">EDM房租計費系統</a>
+                        </div>
+                        
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1uizFGzfZsC1PVE?e=F517A6">UDM產品行銷方案</a>
+                        </div>
+
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1d42rBnTkUKO6dW?e=gdyIbP">UDM有線方案電流鉤表</a>
+                        </div>
+
+                        <div class="product">
+                            <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1l0cSBWCOYD700a?e=kaL7R9">UDM智慧水表方案</a>
+                        </div>
+
+
+                    </div>
+                </div>
+            
+                            
+                    
+                <h1 class="header">Installation Guide</h1>
+                <p class="text-center">
+                    <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOngatPesPbYD_qb-g?e=Z8GuNe" class="btn btn-success btn-lg">閘道器GW06/08</a>
+                </p>
+                <p class="text-center">
+                    <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm1_07W-aBbU-IJH5?e=0sbAKb" class="btn btn-success btn-lg">閘道器與TCP Modbus</a>
+
+                                       
+                </p>
+                <h1 class="header">Certificate</h1>
+                <p class="text-center">
+                    <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOlUc_dutl_8vXpHPy?e=yULEta" class="btn btn-info btn-lg">智慧鉤表COM2</a>
+                </p>
+                <p class="text-center">
+                    <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOm2C9rpr6lXW9bLzm?e=Emxl46" class="btn btn-info btn-lg">智慧鉤表COM3/CM04</a>
+                </p>
+                <h1 class="header">環境方案 PM2.5 & 空氣品質</h1>
+                <p class="text-center">
+                    <a href="https://1drv.ms/b/s!Ag83-ZLdP_aOnB5Pekod3h7_6pRe?e=FOejQB" class="btn btn-warning btn-lg">操作手冊IAQS系列</a>
+                </p>
+            </div>
+        
+            <!-- Vue.js -->
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+            <!-- Bootstrap and Popper -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <script>
+                new Vue({
+                    el: '#app',
+                    data: {
+                        columns: [
+                            [
+                                { label: 'Wired-EMS-Solution', url: 'https://1drv.ms/b/s!Ag83-ZLdP_aOm1SOLc5_J5zrWZEo?e=LlHb5z' },
+                                { label: 'UDM Wireless-Product-Brochure', url: 'https://your_onedrive_link_to_udm_wireless_product_brochure' },
+                                { label: 'UDM Smart-Meter', url: 'https://your_onedrive_link_to_udm_smart_meter' },
+                                { label: 'UDM Wireless-Product-Package', url: 'https://your_onedrive_link_to_udm_wireless_product_package' },
+                                { label: 'UDM Gateway GW06-04', url: 'https://your_onedrive_link_to_udm_gateway_gw06_04' }
+                            ],
+                            [
+                                { label: 'EDM_studio-electricity-charge-Solution', url: 'https://your_onedrive_link_to_edm_studio_electricity_charge_solution' },
+                                { label: 'UDM PSM-Profile', url: 'https://your_onedrive_link_to_udm_psm_profile' },
+                                { label: 'UDM Wired-Product-CT-Clamp', url: 'https://your_onedrive_link_to_udm_wired_product_ct_clamp' },
+                                { label: 'UDM Water-Meter-Solution', url: 'https://your_onedrive_link_to_udm_water_meter_solution' }
+                            ]
+                        ]
+                    }
+                });
+            </script>
+        </body>
+        </html>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </p>
+    </div>
+
+    <div id="consult-zh" class="content-container">
+        <h1>諮詢</h1>
+        <p>
+            <!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><BR><BR><BR><BR>三相功率消耗計算器</title>
+        <BR><BR><BR><BR><BR><BR>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 700px;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        label, input, select, button {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="powerCalculatorApp-zh" class="d-flex justify-content-center align-items-center vh-100">
+        <div class="container">
+            <h1 class="text-center mb-3">三相功率消耗計算器</h1>
+            <form @submit.prevent="calculateResults">
+                <div class="mb-3">
+                    <label for="connectionType-zh" class="form-label">連接類型:</label>
+                    <select id="connectionType-zh" class="form-select" v-model="connectionType" @change="updateLineVoltage">
+                        <option value="delta">三角形</option>
+                        <option value="wye">星形</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="phaseVoltage-zh" class="form-label">相電壓 (V):</label>
+                    <input type="number" id="phaseVoltage-zh" class="form-control" v-model.number="phaseVoltage" @input="updateLineVoltage">
+                </div>
+                <div class="mb-3">
+                    <label for="lineVoltage-zh" class="form-label">線電壓 (V):</label>
+                    <input type="number" id="lineVoltage-zh" class="form-control" v-model="lineVoltage" readonly>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="phaseCurrentR-zh" class="form-label">相電流 R (A):</label>
+                        <input type="number" id="phaseCurrentR-zh" class="form-control" v-model.number="phaseCurrentR" @input="updateCurrents">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="phaseCurrentS-zh" class="form-label">相電流 S (A):</label>
+                        <input type="number" id="phaseCurrentS-zh" class="form-control" v-model.number="phaseCurrentS" @input="updateCurrents">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="phaseCurrentT-zh" class="form-label">相電流 T (A):</label>
+                        <input type="number" id="phaseCurrentT-zh" class="form-control" v-model.number="phaseCurrentT" @input="updateCurrents">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="lineCurrent-zh" class="form-label">線電流 (A):</label>
+                    <input type="number" id="lineCurrent-zh" class="form-control" v-model="lineCurrent" readonly>
+                </div>
+                <div class="mb-3">
+                    <label for="powerFactor-zh" class="form-label">功率因素:</label>
+                    <input type="number" id="powerFactor-zh" class="form-control" v-model.number="powerFactor" min="0" max="1" step="0.01">
+                </div>
+                <div class="mb-3">
+                    <label for="costPerUnit-zh" class="form-label">每千瓦時成本 ($):</label>
+                    <input type="number" id="costPerUnit-zh" class="form-control" v-model.number="costPerUnit" step="0.01">
+                </div>
+                <div class="mb-3">
+                    <label for="hoursUsed-zh" class="form-label">使用小時:</label>
+                    <input type="number" id="hoursUsed-zh" class="form-control" v-model.number="hoursUsed">
+                </div>
+                <div class="mb-3">
+                    <label for="carbonCoefficient-zh" class="form-label">碳排放係數 (kg CO₂/kWh):</label>
+                    <input type="number" id="carbonCoefficient-zh" class="form-control" v-model.number="carbonCoefficient" step="0.001">
+                </div>
+                <button type="submit" class="btn btn-primary">計算</button>
+            </form>
+            <div id="results-zh" class="mt-3" v-if="resultsShown">
+                <p>視在功率: {{ apparentPower.toFixed(3) }} kVA</p>
+                <p>實功: {{ realPower.toFixed(3) }} kW</p>
+                <p>無功功率: {{ reactivePower.toFixed(3) }} kVAR</p>
+                <p>總成本: ${{ totalCost.toFixed(2) }}</p>
+                <p>功率消耗: {{ totalPowerConsumption.toFixed(3) }} kWh</p>
+                <p>視在功率消耗: {{ totalApparentPower.toFixed(3) }} kVAh</p>
+                <p>碳排放: {{ totalCarbonEmission.toFixed(3) }} kg CO₂</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div>
+        <img src="https://github.com/Sethjesus/Photo/blob/main/CFormula.jpg?raw=true" alt="Formula" style="display: block; margin: auto; width: 50%;">
+
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.31/dist/vue.global.prod.js"></script>
+    <script>
+        Vue.createApp({
+            data() {
+                return {
+                    connectionType: 'delta',
+                    phaseVoltage: 0,
+                    lineVoltage: 0,
+                    phaseCurrentR: 0,
+                    phaseCurrentS: 0,
+                    phaseCurrentT: 0,
+                    lineCurrent: 0,
+                    powerFactor: 0.95,
+                    costPerUnit: 0.10,
+                    hoursUsed: 0,
+                    carbonCoefficient: 0.495,
+                    apparentPower: 0,
+                    realPower: 0,
+                    reactivePower: 0,
+                    totalCost: 0,
+                    totalPowerConsumption: 0,
+                    totalApparentPower: 0,
+                    totalCarbonEmission: 0,
+                    resultsShown: false
+                };
+            },
+            methods: {
+                updateLineVoltage() {
+                    const sqrt3 = Math.sqrt(3);
+                    this.lineVoltage = (this.connectionType === 'wye') ? this.phaseVoltage * sqrt3 : this.phaseVoltage;
+                },
+                updateCurrents() {
+                    const sqrt3 = Math.sqrt(3);
+                    this.lineCurrent = (this.connectionType === 'delta') ? (this.phaseCurrentR + this.phaseCurrentS + this.phaseCurrentT) / sqrt3 : (this.phaseCurrentR + this.phaseCurrentS + this.phaseCurrentT) / 3;
+                },
+                calculateResults() {
+                    const sqrt3 = Math.sqrt(3);
+                    this.apparentPower = this.phaseVoltage * (this.phaseCurrentR + this.phaseCurrentS + this.phaseCurrentT) / 1000; // Sum of phase currents
+                    this.realPower = this.apparentPower * this.powerFactor;
+                    this.reactivePower = Math.sqrt(this.apparentPower ** 2 - this.realPower ** 2);
+                    this.totalCost = this.realPower * this.costPerUnit * this.hoursUsed;
+                    this.totalCarbonEmission = this.apparentPower * this.hoursUsed * this.carbonCoefficient;
+                    this.totalPowerConsumption = this.realPower * this.hoursUsed;
+                    this.totalApparentPower = this.apparentPower * this.hoursUsed;
+                    this.resultsShown = true;
+                }
+            }
+        }).mount('#powerCalculatorApp-zh');
+    </script>
+</body>
+</html>
+
+            </p>
+    </div>
+
+    <div id="contact-zh" class="content-container">
+        <h1>聯絡我們</h1>
+        <p>
+            <!DOCTYPE html>
+            <html lang="zh">
+            <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Contact Us - UDM Group Technology Co., Ltd.</title>
+            <!-- 引入 Bootstrap CSS -->
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+            <!-- 引入 Vue.js -->
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
+            <style>
+                body, html {
+                    height: 100%;
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                }
+                #vue-container {
+                    text-align: center;
+                    max-width: 800px;
+                    padding: 20px;
+                    background: white;
+                    border-radius: 8px;
+                    margin: auto;
+                    margin-top: 50px;
+                    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                }
+                .image-area, .partners-area {
+                    margin-bottom: 20px;
+                }
+                img {
+                    max-width: 100%; /* 图片响应式调整大小 */
+                    height: auto;
+                }
+            </style>
+            </head>
+            <body>
+            <div id="vue-container">
+                <div class="image-area">
+                    <img src="https://github.com/Sethjesus/Photo/blob/main/UDM%20Logo.png?raw=true" alt="Company Logo"> <!-- 替换为你的公司logo的URL -->
+                </div>
+                <h1>Contact Us</h1>
+                <p><strong>UDM 景沛PSM 事業群</strong></p>
+                <p><strong>Address:</strong> 235新北市中和區中正路872號12樓之1</p>
+                <p><strong>Telephone:</strong> 02-6620-2388</p>
+                <p><strong>Fax:</strong> 02-6620-2720</p>
+                <div class="partners-area">
+                    <img src="https://github.com/Sethjesus/Photo/blob/main/SDGs.jpg?raw=true" alt="Partners Image"> <!-- 替换为合作伙伴图片的URL -->
+                </div>
+                <p>&copy; 2024 All Rights Reserved.</p>
+            </div>
+            <script>
+                new Vue({
+                    el: '#vue-container',
+                    data: {
+                        companyName: 'UDM Group Technology Co., Ltd.',
+                        address: '12F.-1, No.872, Zhongzheng Rd., Zhonghe Dist., New Taipei City 235, Taiwan (R.O.C.)',
+                        telephone: '+886-2-66202388',
+                        fax: '+886-2-66202720'
+                    }
+                });
+            </script>
+            </body>
+            </html>
+            
+
+        </p>
+    </div>
+
+    <footer>
+        <div id="footer-en">
+            <p>&copy; 2025 UDM Group Technology Co., Ltd.JP ESG. All rights reserved.</p>
+            <p>
+                <strong>Address:</strong> 12F.-1, No. 872, Zhongzheng Rd., Zhonghe Dist., New Taipei City 235, Taiwan (R.O.C.) |
+                <strong>TEL:</strong> +886-2-66202388 |
+                <strong>FAX:</strong> +886-2-66202720
+            </p>
+        </div>
+        
+
+        <div id="footer-zh" style="display: none;">
+          
+            <p>
+                <p>&copy; 2025 UDM Group Technology Co., Ltd.景沛團隊版權所有.</p>
+                <strong>Address:</strong> 台灣新北市中正路872號12樓之1 (R.O.C.) |
+                <strong>TEL:</strong> +886-2-66202388 |
+                <strong>FAX:</strong> +886-2-66202720
+            </p>
+        </div>
+    </footer>
+
+    
+    <script>
+        function toggleLanguage(lang) {
+            const enLinks = document.getElementById('nav-links-en');
+            const zhLinks = document.getElementById('nav-links-zh');
+            const enContainers = document.querySelectorAll('[id$="-en"]');
+            const zhContainers = document.querySelectorAll('[id$="-zh"]');
+            const footerEn = document.getElementById('footer-en');
+            const footerZh = document.getElementById('footer-zh');
+    
+            if (lang === 'en') {
+                enLinks.style.display = 'flex';
+                zhLinks.style.display = 'none';
+                enContainers.forEach(container => container.classList.add('active'));
+                zhContainers.forEach(container => container.classList.remove('active'));
+                footerEn.style.display = 'block';
+                footerZh.style.display = 'none';
+            } else {
+                enLinks.style.display = 'none';
+                zhLinks.style.display = 'flex';
+                enContainers.forEach(container => container.classList.remove('active'));
+                zhContainers.forEach(container => container.classList.add('active'));
+                footerEn.style.display = 'none';
+                footerZh.style.display = 'block';
+            }
+        }
+    
+        function showContent(contentId) {
+            const allContainers = document.querySelectorAll('.content-container');
+            allContainers.forEach(container => container.classList.remove('active'));
+            const selectedContainer = document.getElementById(contentId);
+            selectedContainer.classList.add('active');
+        }
+    </script>
+    
+</body>
+</html>
